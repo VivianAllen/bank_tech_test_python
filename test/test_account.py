@@ -16,7 +16,7 @@ class AccountTestSuite(unittest.TestCase):
     """ unit tests for account class """
 
     def setUp(self):
-        self.account = Account(MockDeposit)
+        self.account = Account(MockDeposit, MockWithdrawal)
 
     def test_making_a_deposit(self):
         self.account.deposit(100)
