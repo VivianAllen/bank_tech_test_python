@@ -7,7 +7,15 @@ As a bank customer
 So that I can keep my money safe
 I would like to deposit money into my account
 ```
-![US1_model](bankTechTestUS1.png)
+![img](bankTechTestUS1.png)
+
+```
+User Story 2:
+As a bank customer
+So that I can see how much money I have
+I would like to see my balance printed on the screen
+```
+![img](bankTechTestUS2.png)
 
 rough domain:
 
