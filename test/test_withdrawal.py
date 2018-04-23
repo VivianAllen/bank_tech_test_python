@@ -9,7 +9,7 @@ class WithdrawalTestSuite(unittest.TestCase):
         self.adjusted_value = self.test_value * -1
         self.withdrawal= Withdrawal(self.test_value)
 
-    def test_deposit_is_always_negative(self):
+    def test_withdrawal_is_always_negative(self):
         self.assertEqual(self.withdrawal.value, self.adjusted_value)
 
 if __name__ == '__main__':
