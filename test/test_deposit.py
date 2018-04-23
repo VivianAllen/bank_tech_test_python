@@ -11,7 +11,7 @@ class DepositTestSuite(unittest.TestCase):
         self.deposit = Deposit(self.test_value)
 
     def test_deposit_is_always_positive(self):
-        self.assertEqual(self.depost.value, self.adjusted_value)
+        self.assertEqual(self.deposit.value, self.adjusted_value)
 
 if __name__ == '__main__':
     unittest.main()
