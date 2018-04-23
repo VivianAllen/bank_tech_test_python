@@ -17,6 +17,14 @@ I would like to see my balance printed on the screen
 ```
 ![img](bankTechTestUS2.png)
 
+```
+User Story 3:
+As a bank customer
+So that I can spend money on stuff
+I would like to be able to withdraw my money
+```
+![img](bankTechTestUS3.png)
+
 rough domain:
 
 deposit class

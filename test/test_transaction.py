@@ -5,7 +5,6 @@ from unittest.mock import patch
 from transaction import Transaction
 
 class TransactionTestSuite(unittest.TestCase):
-    """ unit tests for transaction class """
 
     def setUp(self):
         self.test_value = 100

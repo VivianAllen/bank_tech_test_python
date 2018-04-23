@@ -3,7 +3,6 @@ import unittest
 from deposit import Deposit
 
 class DepositTestSuite(unittest.TestCase):
-    """ unit tests for transaction class """
 
     def setUp(self):
         self.test_value = -100
