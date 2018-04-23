@@ -17,4 +17,9 @@ class Account(object):
         self.withdrawals.append(self.withdrawal_class(value))
 
     def balance(self):
-        return reduce( lambda x, y: x.value + y.value, self.deposits)
+        if len(self.deposits) < 1:
+            return 0.0
+        if len(self.deposits) == 1:
+            return self.deposits[0].value
+        else:
+            return reduce( lambda x, y: x.value + y.value, self.deposits)

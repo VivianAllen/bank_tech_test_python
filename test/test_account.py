@@ -27,7 +27,14 @@ class AccountTestSuite(unittest.TestCase):
         self.account.deposit(100)
         self.assertEqual(len(self.account.deposits), 2)
 
-    def test_seeing_balance_deposits_only(self):
+    def test_seeing_balance_no_transactions(self):
+        self.assertEqual( self.account.balance(), 0)
+
+    def test_seeing_balance_one_deposits(self):
+        self.account.deposit(100)
+        self.assertEqual( self.account.balance(), 100)
+
+    def test_seeing_balance_two_deposits(self):
         self.account.deposit(100)
         self.account.deposit(50)
         self.assertEqual( self.account.balance(), 150)
@@ -40,3 +47,8 @@ class AccountTestSuite(unittest.TestCase):
         self.account.withdraw(-100)
         self.account.withdraw(-100)
         self.assertEqual(len(self.account.withdrawals), 2)
+
+    def test_combining_withdrawals_and_deposits_as_transactions_list(self):
+        self.account.deposit(100)
+        self.account.withdraw(-100)
+        self.assertEqual(len(self.account.transactions), 2)
