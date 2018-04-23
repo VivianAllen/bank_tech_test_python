@@ -17,6 +17,12 @@ class AccountTestSuite(unittest.TestCase):
         self.account.deposit(100)
         self.assertEqual(self.account.deposits[0].value, 100)
 
+    def test_making_two_deposits(self):
+        self.account.deposit(100)
+        self.account.deposit(100)
+        self.assertEqual(len(self.account.deposits), 2)
+
     def test_seeing_balance_deposits_only(self):
+        self.account.deposit(100)
         self.account.deposit(50)
-        self.assertEqual(self.account.balance(), 150)
+        self.assertEqual( self.account.balance(), 150)

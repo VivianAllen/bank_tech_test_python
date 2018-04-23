@@ -1,4 +1,5 @@
 from deposit import Deposit
+from functools import reduce
 
 class Account(object):
 
@@ -8,3 +9,6 @@ class Account(object):
 
     def deposit(self, value):
         self.deposits.append(self.deposit_class(value))
+
+    def balance(self):
+        return reduce( lambda x, y: x.value + y.value, self.deposits)
