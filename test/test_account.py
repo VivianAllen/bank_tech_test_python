@@ -43,12 +43,12 @@ class AccountTestSuite(unittest.TestCase):
 
     def test_get_values_with_one_transaction(self):
         self.account.deposit(100)
-        self.assertEqual(len(self.account.get_values()), 1)
+        self.assertEqual(self.account.get_values(), [100])
 
     def test_get_values_with_two_transaction(self):
         self.account.deposit(100)
         self.account.withdraw(-100)
-        self.assertEqual(len(self.account.get_values()), 2)
+        self.assertEqual(self.account.get_values(), [100, -100])
 
     def test_seeing_balance_no_transactions(self):
         self.assertEqual( self.account.balance(), 0)
