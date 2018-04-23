@@ -15,4 +15,4 @@ class AccountTestSuite(unittest.TestCase):
 
     def test_making_a_deposit(self):
         self.account.deposit(100)
-        self.assertEqual(self.deposits[0].value(), 100)
+        self.assertEqual(self.account.deposits[0].value, 100)
