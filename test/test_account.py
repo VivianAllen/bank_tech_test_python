@@ -7,6 +7,11 @@ class MockDeposit(object):
     def __init__(self, value):
         self.value = value
 
+class MockWithdrawal(object):
+
+    def __init__(self, value):
+        self.value = value
+
 class AccountTestSuite(unittest.TestCase):
     """ unit tests for account class """
 
@@ -26,3 +31,12 @@ class AccountTestSuite(unittest.TestCase):
         self.account.deposit(100)
         self.account.deposit(50)
         self.assertEqual( self.account.balance(), 150)
+
+    def test_making_a_withdrawal(self):
+        self.account.withdraw(-100)
+        self.assertEqual(self.account.withdrawals[0].value, -100)
+
+    def test_making_two_withdrawals(self):
+        self.account.withdraw(-100)
+        self.account.withdraw(-100)
+        self.assertEqual(len(self.account.withdrawals), 2)
