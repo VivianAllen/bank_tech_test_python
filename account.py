@@ -20,9 +20,7 @@ class Account(object):
         return self.deposits + self.withdrawals
 
     def balance(self):
-        if len(self.deposits) < 1:
-            return 0.0
-        if len(self.deposits) == 1:
-            return self.deposits[0].value
-        else:
-            return reduce( lambda x, y: x.value + y.value, self.deposits)
+        return reduce( lambda x, y: x + y, self.get_values(), 0)
+
+    def get_values(self):
+        return [x.value for x in self.transactions()]
