@@ -51,4 +51,4 @@ class AccountTestSuite(unittest.TestCase):
     def test_combining_withdrawals_and_deposits_as_transactions_list(self):
         self.account.deposit(100)
         self.account.withdraw(-100)
-        self.assertEqual(len(self.account.transactions), 2)
+        self.assertEqual(len(self.account.transactions()), 2)

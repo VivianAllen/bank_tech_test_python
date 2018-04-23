@@ -16,6 +16,9 @@ class Account(object):
     def withdraw(self, value):
         self.withdrawals.append(self.withdrawal_class(value))
 
+    def transactions(self):
+        return self.deposits + self.withdrawals
+
     def balance(self):
         if len(self.deposits) < 1:
             return 0.0
