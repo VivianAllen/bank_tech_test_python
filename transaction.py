@@ -1,6 +1,6 @@
 import time
 
-class Item(object):
+class Transaction(object):
 
     def __init__(self, value):
         self.value = value
