@@ -5,7 +5,7 @@
 User Story 1:
 As a bank customer
 So that I can keep my money safe
-I would like to deposit money into my account and see my balance
+I would like to deposit money into my account
 ```
 ![US1_model](bankTechTestUS1.png)
 
