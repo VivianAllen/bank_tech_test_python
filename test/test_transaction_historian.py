@@ -51,8 +51,8 @@ class TransactionHistorianTestSuite(unittest.TestCase):
         balance_list = [0, -100, -200, -100]
         self.assertEqual(self.trans_hist.balance_history(trans_list), balance_list)
 
-    def test_transaction_historian_history_returns_nested_list_of_timesorted_transactions_and_balance_history(self):
+    def test_transaction_historian_history_returns_dict_of_timesorted_transactions_balance_pairs(self):
         trans_list = [self.trans1, self.trans2, self.trans3, self.trans4]
         sorted_list =  [self.trans4, self.trans3, self.trans2, self.trans1]
         balance_list = [0, -100, -200, -100]
-        self.assertEqual(self.trans_hist.history(trans_list), [sorted_list, balance_list])
+        self.assertEqual(self.trans_hist.history(trans_list), dict(zip(sorted_list, balance_list)))
