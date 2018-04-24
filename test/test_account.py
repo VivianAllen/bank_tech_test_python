@@ -1,5 +1,6 @@
 import context
 import unittest
+import sys
 from account import Account
 
 class MockTransaction(object):
@@ -9,8 +10,8 @@ class MockTransaction(object):
 
 class MockPrinter(object):
 
-    def print_statment(self):
-        return 'This is a printed statement'
+    def print_statement(self, transaction_list):
+        print('This is a printed statement')
 
 class AccountTestSuite(unittest.TestCase):
 
@@ -73,8 +74,26 @@ class AccountTestSuite(unittest.TestCase):
         self.account.withdraw(-100)
         self.assertEqual( self.account.balance(), -200)
 
-    def test_account_printing_statement(self):
-        self.account.assertEqual( self.printStatement(), 'This is a printed statement')
+    def test_account_printing_statement_prints_account_to_shell(self):
+        class MyOutput(object):
+            def __init__(self):
+                self.data = []
+
+            def write(self, s):
+                self.data.append(s)
+
+            def __str__(self):
+                return "".join(self.data)
+
+        stdout_org = sys.stdout
+        my_stdout = MyOutput()
+        try:
+            sys.stdout = my_stdout
+            self.account.print_statement()
+        finally:
+            sys.stdout = stdout_org
+
+        self.assertEqual( str(my_stdout), 'This is a printed statement' + '\n')
 
 if __name__ == '__main__':
     unittest.main()

@@ -42,7 +42,7 @@ class StatementPrinterTestSuite(unittest.TestCase):
         finally:
             sys.stdout = stdout_org
 
-        self.assertEquals( str(my_stdout), self.statement)
+        self.assertEqual( str(my_stdout), self.statement)
 
 if __name__ == '__main__':
     unittest.main()

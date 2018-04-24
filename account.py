@@ -12,6 +12,7 @@ class Account(object):
         ):
         self.deposit_class = deposit_class
         self.withdrawal_class = withdrawal_class
+        self.printer = printer_class()
         self.deposits = []
         self.withdrawals = []
 
@@ -29,3 +30,6 @@ class Account(object):
 
     def balance(self):
         return reduce(lambda x, y: x + y, self.get_values(), 0)
+
+    def print_statement(self):
+        self.printer.print_statement(self.transactions())
