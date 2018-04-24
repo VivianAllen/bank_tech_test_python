@@ -33,5 +33,5 @@ class TransactionHistorianTestSuite(unittest.TestCase):
 
     def test_transaction_historian_timesort_sorts_in_ascending_age(self):
         trans_list = [self.trans2, self.trans4, self.trans1, self.trans3]
-        sorted_list =  [self.trans1, self.trans2, self.trans3, self.trans4]
+        sorted_list =  [self.trans4, self.trans3, self.trans2, self.trans1]
         self.assertEqual(self.trans_hist.timesort(trans_list), sorted_list)
