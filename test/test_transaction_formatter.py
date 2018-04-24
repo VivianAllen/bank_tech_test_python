@@ -6,9 +6,8 @@ from transaction_formatter import TransactionFormatter
 
 class MockTransaction(object):
 
-    def __init__(self, value, balance, time):
+    def __init__(self, value, time):
         self.value = value
-        self.balance = balance
         self.date = time
 
 class TransactionFormatterTestSuite(unittest.TestCase):
@@ -16,30 +15,30 @@ class TransactionFormatterTestSuite(unittest.TestCase):
     def setUp(self):
         timenow = time.localtime()
         timestring = time.strftime("%x", timenow)
-        self.deposit = MockTransaction(100, 200, timenow)
-        self.withdrawal = MockTransaction(-100, 0, timenow)
+        self.deposit = MockTransaction(100, timenow)
+        self.withdrawal = MockTransaction(-100, timenow)
         self.formatter = TransactionFormatter()
         self.formatted_deposit = " || ".join([
             timestring,
             str(self.deposit.value),
             "",
-            str(self.deposit.balance)
+            str(100)
         ])
         self.formatted_withdrawal = " || ".join([
             timestring,
             "",
             str(abs(self.withdrawal.value)),
-            str(self.withdrawal.balance)
+            str(0)
         ])
 
     def test_transaction_formatter_format_formats_a_deposit(self):
         self.assertEqual(
-        self.formatter.format(self.deposit), self.formatted_deposit
+        self.formatter.format(self.deposit, 100), self.formatted_deposit
         )
 
     def test_transaction_formatter_format_formats_a_withdrawal(self):
         self.assertEqual(
-        self.formatter.format(self.withdrawal), self.formatted_withdrawal
+        self.formatter.format(self.withdrawal, 0), self.formatted_withdrawal
         )
 
 if __name__ == '__main__':
