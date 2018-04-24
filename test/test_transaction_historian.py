@@ -35,3 +35,8 @@ class TransactionHistorianTestSuite(unittest.TestCase):
         trans_list = [self.trans2, self.trans4, self.trans1, self.trans3]
         sorted_list =  [self.trans4, self.trans3, self.trans2, self.trans1]
         self.assertEqual(self.trans_hist.timesort(trans_list), sorted_list)
+
+    def test_transaction_historian_balance_history_calcs_rolling_balance(self):
+        trans_list = [self.trans1, self.trans2, self.trans3, self.trans4]
+        balance_list = [-100, -200, -100, 0]
+        self.assertEqual(self.trans_hist.balance_history(trans_list), balance_list)
