@@ -55,4 +55,4 @@ class TransactionHistorianTestSuite(unittest.TestCase):
         trans_list = [self.trans1, self.trans2, self.trans3, self.trans4]
         sorted_list =  [self.trans4, self.trans3, self.trans2, self.trans1]
         balance_list = [0, -100, -200, -100]
-        self.assertEqual(self.history(trans_list), [sorted_list, balance_list])
+        self.assertEqual(self.trans_hist.history(trans_list), [sorted_list, balance_list])
