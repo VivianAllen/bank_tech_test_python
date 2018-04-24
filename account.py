@@ -5,7 +5,11 @@ from functools import reduce
 
 class Account(object):
 
-    def __init__(self, deposit_class=Deposit, withdrawal_class=Withdrawal):
+    def __init__(self,
+        deposit_class=Deposit,
+        withdrawal_class=Withdrawal,
+        printer_class=StatementPrinter,
+        ):
         self.deposit_class = deposit_class
         self.withdrawal_class = withdrawal_class
         self.deposits = []

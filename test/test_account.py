@@ -7,10 +7,15 @@ class MockTransaction(object):
     def __init__(self, value):
         self.value = value
 
+class MockPrinter(object):
+
+    def print_statment(self):
+        return 'This is a printed statement'
+
 class AccountTestSuite(unittest.TestCase):
 
     def setUp(self):
-        self.account = Account(MockTransaction, MockTransaction)
+        self.account = Account(MockTransaction, MockTransaction, MockPrinter)
 
     def test_account_making_a_deposit(self):
         self.account.deposit(100)
@@ -67,6 +72,9 @@ class AccountTestSuite(unittest.TestCase):
         self.account.withdraw(-100)
         self.account.withdraw(-100)
         self.assertEqual( self.account.balance(), -200)
+
+    def test_account_printing_statement(self):
+        self.account.assertEqual( self.printStatement(), 'This is a printed statement')
 
 if __name__ == '__main__':
     unittest.main()
