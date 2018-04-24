@@ -31,6 +31,7 @@ As a bank customer
 So that I can track my saving and spending over time
 I would like to see an account statement, with withdrawals, deposits, timestamps and balance adjustments, printed on the screen.
 ```
+![img](bankTechTestUS4.png)
 
 rough domain:
 
