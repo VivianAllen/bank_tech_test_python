@@ -4,7 +4,7 @@ from statement_printer import StatementPrinter
 from functools import reduce
 
 class Account(object):
-
+    
     def __init__(self,
         deposit_class=Deposit,
         withdrawal_class=Withdrawal,
@@ -29,7 +29,7 @@ class Account(object):
         return [x.value for x in self.transactions()]
 
     def balance(self):
-        return reduce(lambda x, y: x + y, self.get_values(), 0)
+        print (reduce(lambda x, y: x + y, self.get_values(), 0))
 
     def print_statement(self):
         self.printer.print_statement(self.transactions())

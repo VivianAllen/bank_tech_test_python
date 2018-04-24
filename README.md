@@ -1,3 +1,60 @@
+# Introduction
+
+A simple simulation of a bank account, allowing deposit, withdrawal, balance
+checking, and statement display.
+
+### Tech
+
+Written in Python 3.6.5. All packages used are included as default in the main
+python install. Tests were written in the default python testing library,
+unittest.
+
+### Content
+
+| dir: | contents; |
+|--|--|
+| root | class logic ([*].py), README and README images |
+| test | class tests (test_[*].py) |
+
+# Instructions For Use
+
+## Getting Started
+
+1. Install Python 3 if not already installed ([Click here to visit the Python website](https://www.python.org/downloads/))
+
+2. Clone or download/unzip this repository into a local folder.
+
+3. Enter the python console by typing `Python3` into a terminal from the root
+folder.
+
+4. To get started, import the Account class using `from account import Account`,
+then make a new account using `[account name] = Account()`, where [account name]
+is the name you want to call your account.
+
+5. To make a deposit, type in `[account name].deposit([amount])`, where [amount]
+is the amount you wish to deposit.
+
+6. To make withdrawal, type in `[account name].withdraw([amount])`, where [amount]
+is the amount you wish to withdraw.
+
+7. To see your balance, type in `[account name].balance()`
+
+8. To see a printed statement, type in `[account name].print_statement()`
+
+## Tests
+
+All tests (found in the `test` directory) were written in `unittest`, pythons
+built-in testing framework. To run all tests, from the main terminal (NB bash terminal,
+not python terminal!) type in `python -m unittest discover test -v`. The name of each test
+and the results (pass = 'ok', fail == 'FAIL') will be printed to the terminal.
+
+To run individual tests, navigate to the test directory and then run
+`python -m unittest test_account.py -v` from the bash terminal.
+
+NB the `-v` flag is optional, and specifies verbose mode (printing test names and
+results). Without the -v flag, you will just see a general 'ok' method. 
+
+# === DEVELOPMENT ===
 
 ## Modelling
 

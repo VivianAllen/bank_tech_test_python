@@ -13,6 +13,16 @@ class MockPrinter(object):
     def print_statement(self, transaction_list):
         print('This is a printed statement')
 
+class MyOutput(object):
+    def __init__(self):
+        self.data = []
+
+    def write(self, s):
+        self.data.append(s)
+
+    def __str__(self):
+        return "".join(self.data)
+
 class AccountTestSuite(unittest.TestCase):
 
     def setUp(self):
@@ -51,40 +61,45 @@ class AccountTestSuite(unittest.TestCase):
         self.assertEqual(self.account.get_values(), [100, -100])
 
     def test_account_seeing_balance_no_transactions(self):
-        self.assertEqual( self.account.balance(), 0)
+        stdout_org = sys.stdout
+        my_stdout = MyOutput()
+        try:
+            sys.stdout = my_stdout
+            self.account.balance()
+        finally:
+            sys.stdout = stdout_org
+
+        self.assertEqual( str(my_stdout), "0\n")
 
     def test_account_seeing_balance_one_deposits(self):
         self.account.deposit(100)
-        self.assertEqual( self.account.balance(), 100)
+        stdout_org = sys.stdout
+        my_stdout = MyOutput()
+        try:
+            sys.stdout = my_stdout
+            self.account.balance()
+        finally:
+            sys.stdout = stdout_org
 
-    def test_account_seeing_balance_two_deposits(self):
-        self.account.deposit(100)
-        self.account.deposit(50)
-        self.assertEqual( self.account.balance(), 150)
+        self.assertEqual( str(my_stdout), "100\n")
 
     def test_account_seeing_balance_deposits_and_withdrawals(self):
         self.account.deposit(100)
         self.account.deposit(100)
         self.account.withdraw(-100)
         self.account.withdraw(-100)
-        self.assertEqual( self.account.balance(), 0)
 
-    def test_account_seeing_balance_two_withdrawals(self):
-        self.account.withdraw(-100)
-        self.account.withdraw(-100)
-        self.assertEqual( self.account.balance(), -200)
+        stdout_org = sys.stdout
+        my_stdout = MyOutput()
+        try:
+            sys.stdout = my_stdout
+            self.account.balance()
+        finally:
+            sys.stdout = stdout_org
+
+        self.assertEqual( str(my_stdout), "0\n")
 
     def test_account_printing_statement_prints_account_to_shell(self):
-        class MyOutput(object):
-            def __init__(self):
-                self.data = []
-
-            def write(self, s):
-                self.data.append(s)
-
-            def __str__(self):
-                return "".join(self.data)
-
         stdout_org = sys.stdout
         my_stdout = MyOutput()
         try:
