@@ -28,8 +28,8 @@ class TransactionFormatterTestSuite(unittest.TestCase):
         self.formatted_withdrawal = " || ".join([
             timestring,
             "",
-            str(self.deposit.value),
-            str(self.deposit.balance)
+            str(abs(self.withdrawal.value)),
+            str(self.withdrawal.balance)
         ])
 
     def test_transaction_formatter_format_formats_a_deposit(self):
