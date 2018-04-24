@@ -52,7 +52,7 @@ To run individual tests, navigate to the test directory and then run
 `python -m unittest test_account.py -v` from the bash terminal.
 
 NB the `-v` flag is optional, and specifies verbose mode (printing test names and
-results). Without the -v flag, you will just see a general 'ok' method. 
+results). Without the -v flag, you will just see a general 'ok' method.
 
 # === DEVELOPMENT ===
 
@@ -89,43 +89,6 @@ So that I can track my saving and spending over time
 I would like to see an account statement, with withdrawals, deposits, timestamps and balance adjustments, printed on the screen.
 ```
 ![img](bankTechTestUS4.png)
-
-rough domain:
-
-deposit class
-ATTRIBUTES:
-- credit amount
-- date
-FUNCTIONS:
-- read attributes
-
-withdrawal class
-ATTRIBUTES:
-- debit amount
-- date
-FUNCTIONS:
-- read attributes
-
-statement_line_printer class
-ATTRIBUTES:
-- row string format
-FUNCTIONS:
-- format withdrawal or deposit as row string
-
-account class
-ATTRIBUTES
-- [deposits]
-- [withdrawals]
-FUNCTIONS:
-- create deposit instance [deposit class]
-- create withdrawal instance [withdrawal class]
-- create combined array of withdrawal and deposit instances
-- time order combined withdrawal/deposit array
-- calculate balance from withdrawal/deposit
-- calculate balance history (as separate array) from withdrawal/deposit array
-- combine deposit/withdrawal array with balance array
-- print combined deposit/withdrawal/balance array as bank statement [statement_line_printer class]
-
 
 ## Specification
 
