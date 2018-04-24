@@ -7,11 +7,10 @@ class StatementPrinter(object):
     def __init__(self,
             list_parser_class=TransactionHistorian,
             row_formatter_class=TransactionFormatter,
-            header=statement_headers[0]
         ):
         self.row_formatter = row_formatter_class()
         self.list_parser = list_parser_class()
-        self.header = header
+        self.header = row_formatter_class.header
 
     def print_statement(self, transaction_list):
         print(self.header)

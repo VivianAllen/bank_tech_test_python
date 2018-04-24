@@ -2,6 +2,8 @@ import time
 
 class TransactionFormatter(object):
 
+    header = "date || credit || debit || balance"
+
     def format(self, transaction, balance):
         if transaction.value > 0: return self.format_deposit(transaction, balance)
         if transaction.value < 0: return self.format_withdrawal(transaction, balance)

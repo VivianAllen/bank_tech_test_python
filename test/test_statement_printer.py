@@ -10,6 +10,8 @@ class MockListParser(object):
 
 class MockRowFormatter(object):
 
+    header = "header"
+
     def format(self, transaction, balance):
         return transaction + balance
 
@@ -26,12 +28,11 @@ class MyOutput(object):
 class StatementPrinterTestSuite(unittest.TestCase):
 
     def setUp(self):
-        header = "header"
-        self.printer = StatementPrinter(MockListParser, MockRowFormatter, header)
+        self.printer = StatementPrinter(MockListParser, MockRowFormatter)
         self.transaction_list = ["test"]
         statement_row = ('this is a formatted transaction and this is a '
                         'balance')
-        self.statement = header + "\n" + statement_row +"\n"
+        self.statement = "header\n" + statement_row +"\n"
 
     def test_statement_printer_prints_statement_to_shell(self):
         stdout_org = sys.stdout
