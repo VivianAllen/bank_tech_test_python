@@ -2,7 +2,6 @@ import context
 import unittest
 import sys
 from statement_printer import StatementPrinter
-from statement_headers import statement_headers
 
 class MockListParser(object):
 
@@ -20,9 +19,9 @@ class MockRowFormatter(object):
 class StatementPrinterTestSuite(unittest.TestCase):
 
     def setUp(self):
-        self.printer = StatementPrinter(MockRowFormatter, MockListParser)
+        header = "header"
+        self.printer = StatementPrinter(MockRowFormatter, MockListParser, header)
         self.transaction_list = "test"
-        header = statement_headers[0]
         statement_row = ('this is a formatted transaction and this is a '
                         'balance')
         self.statement = header + "\n" + statement_row
