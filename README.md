@@ -25,6 +25,13 @@ I would like to be able to withdraw my money
 ```
 ![img](bankTechTestUS3.png)
 
+```
+User Story 4:
+As a bank customer
+So that I can track my saving and spending over time
+I would like to see an account statement, with withdrawals, deposits, timestamps and balance adjustments, printed on the screen.
+```
+
 rough domain:
 
 deposit class

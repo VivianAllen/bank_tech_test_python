@@ -19,8 +19,8 @@ class Account(object):
     def transactions(self):
         return self.deposits + self.withdrawals
 
-    def balance(self):
-        return reduce(lambda x, y: x + y, self.get_values(), 0)
-
     def get_values(self):
         return [x.value for x in self.transactions()]
+
+    def balance(self):
+        return reduce(lambda x, y: x + y, self.get_values(), 0)
