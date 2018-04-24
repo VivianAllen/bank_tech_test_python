@@ -25,10 +25,21 @@ class TransactionFormatterTestSuite(unittest.TestCase):
             "",
             str(self.deposit.balance)
         ])
+        self.formatted_withdrawal = " || ".join([
+            timestring,
+            "",
+            str(self.deposit.value),
+            str(self.deposit.balance)
+        ])
 
     def test_transaction_formatter_format_formats_a_deposit(self):
         self.assertEqual(
         self.formatter.format(self.deposit), self.formatted_deposit
+        )
+
+    def test_transaction_formatter_format_formats_a_withdrawal(self):
+        self.assertEqual(
+        self.formatter.format(self.withdrawal), self.formatted_withdrawal
         )
 
 if __name__ == '__main__':
