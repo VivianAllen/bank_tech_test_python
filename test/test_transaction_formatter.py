@@ -33,12 +33,16 @@ class TransactionFormatterTestSuite(unittest.TestCase):
 
     def test_transaction_formatter_format_formats_a_deposit(self):
         self.assertEqual(
-        self.formatter.format(self.deposit, 100), self.formatted_deposit
+        self.formatter.format(
+            self.deposit, 100),
+            self.formatted_deposit
         )
 
     def test_transaction_formatter_format_formats_a_withdrawal(self):
         self.assertEqual(
-        self.formatter.format(self.withdrawal, 0), self.formatted_withdrawal
+        self.formatter.format(
+            self.withdrawal, 0),
+            self.formatted_withdrawal
         )
 
 if __name__ == '__main__':

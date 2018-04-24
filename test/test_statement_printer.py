@@ -5,11 +5,8 @@ from statement_printer import StatementPrinter
 
 class MockListParser(object):
 
-    def timesort(self, transaction):
-        return ['this is a formatted transaction']
-
-    def balance_history(self, transaction):
-        return [' and this is a balance']
+    def history(self, transaction_list):
+        return [['this is a formatted transaction', ' and this is a balance']]
 
 class MockRowFormatter(object):
 
@@ -20,11 +17,11 @@ class StatementPrinterTestSuite(unittest.TestCase):
 
     def setUp(self):
         header = "header"
-        self.printer = StatementPrinter(MockRowFormatter, MockListParser, header)
-        self.transaction_list = "test"
+        self.printer = StatementPrinter(MockListParser, MockRowFormatter, header)
+        self.transaction_list = ["test"]
         statement_row = ('this is a formatted transaction and this is a '
                         'balance')
-        self.statement = header + "\n" + statement_row
+        self.statement = header + "\n" + statement_row +"\n"
 
     def test_statement_printer_prints_statement_to_shell(self):
         class MyOutput(object):

@@ -1,5 +1,6 @@
 from deposit import Deposit
 from withdrawal import Withdrawal
+from statement_printer import StatementPrinter
 from functools import reduce
 
 class Account(object):
