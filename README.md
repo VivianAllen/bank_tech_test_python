@@ -49,7 +49,8 @@ not python terminal!) type in `python -m unittest discover test -v`. The name of
 and the results (pass = 'ok', fail == 'FAIL') will be printed to the terminal.
 
 To run individual tests, navigate to the test directory and then run
-`python -m unittest test_account.py -v` from the bash terminal.
+`python -m unittest [test name].py -v` from the bash terminal, where [test name]
+is the name of your test.
 
 NB the `-v` flag is optional, and specifies verbose mode (printing test names and
 results). Without the -v flag, you will just see a general 'ok' method.

@@ -1,6 +1,5 @@
 from transaction_formatter import TransactionFormatter
 from transaction_historian import TransactionHistorian
-from statement_headers import statement_headers
 
 class StatementPrinter(object):
 
