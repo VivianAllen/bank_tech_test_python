@@ -2,9 +2,10 @@ from deposit import Deposit
 from withdrawal import Withdrawal
 from statement_printer import StatementPrinter
 from functools import reduce
+from decimal import Decimal
 
 class Account(object):
-    
+
     def __init__(self,
         deposit_class=Deposit,
         withdrawal_class=Withdrawal,
@@ -29,7 +30,9 @@ class Account(object):
         return [x.value for x in self.transactions()]
 
     def balance(self):
-        print (reduce(lambda x, y: x + y, self.get_values(), 0))
+        print (
+            round(Decimal(reduce(lambda x, y: x + y, self.get_values(), 0)),2)
+        )
 
     def print_statement(self):
         self.printer.print_statement(self.transactions())

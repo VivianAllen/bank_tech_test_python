@@ -14,7 +14,7 @@ class TransactionFormatterTestSuite(unittest.TestCase):
 
     def setUp(self):
         timenow = time.localtime()
-        timestring = time.strftime("%x", timenow)
+        timestring = time.strftime("%d/%m/%Y", timenow)
         self.deposit = MockTransaction(100, timenow)
         self.withdrawal = MockTransaction(-100, timenow)
         self.formatter = TransactionFormatter()
@@ -22,13 +22,13 @@ class TransactionFormatterTestSuite(unittest.TestCase):
             timestring,
             str(self.deposit.value),
             "",
-            str(100)
+            "100.00"
         ])
         self.formatted_withdrawal = " || ".join([
             timestring,
             "",
             str(abs(self.withdrawal.value)),
-            str(0)
+            "0.00"
         ])
 
     def test_transaction_formatter_format_formats_a_deposit(self):

@@ -1,4 +1,5 @@
 import time
+from decimal import Decimal
 
 class TransactionFormatter(object):
 
@@ -10,16 +11,16 @@ class TransactionFormatter(object):
 
     def format_deposit(self, transaction, balance):
         return " || ".join([
-            time.strftime("%x", transaction.date),
+            time.strftime("%d/%m/%Y", transaction.date),
             str(abs(transaction.value)),
             "",
-            str(balance)
+            str(round(Decimal(balance),2))
         ])
 
     def format_withdrawal(self, transaction, balance):
         return " || ".join([
-            time.strftime("%x", transaction.date),
+            time.strftime("%d/%m/%Y", transaction.date),
             "",
             str(abs(transaction.value)),
-            str(balance)
+            str(round(Decimal(balance),2))
         ])

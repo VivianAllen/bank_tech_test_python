@@ -69,7 +69,7 @@ class AccountTestSuite(unittest.TestCase):
         finally:
             sys.stdout = stdout_org
 
-        self.assertEqual( str(my_stdout), "0\n")
+        self.assertEqual( str(my_stdout), "0.00\n")
 
     def test_account_seeing_balance_one_deposits(self):
         self.account.deposit(100)
@@ -81,7 +81,7 @@ class AccountTestSuite(unittest.TestCase):
         finally:
             sys.stdout = stdout_org
 
-        self.assertEqual( str(my_stdout), "100\n")
+        self.assertEqual( str(my_stdout), "100.00\n")
 
     def test_account_seeing_balance_deposits_and_withdrawals(self):
         self.account.deposit(100)
@@ -97,7 +97,7 @@ class AccountTestSuite(unittest.TestCase):
         finally:
             sys.stdout = stdout_org
 
-        self.assertEqual( str(my_stdout), "0\n")
+        self.assertEqual( str(my_stdout), "0.00\n")
 
     def test_account_printing_statement_prints_account_to_shell(self):
         stdout_org = sys.stdout
