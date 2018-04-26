@@ -11,7 +11,7 @@ unittest.
 
 ### Content
 
-| dir: | contents; |
+| dir: | contents: |
 |--|--|
 | root | class logic ([*].py), README and README images |
 | test | class tests (test_[*].py) |
